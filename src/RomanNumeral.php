@@ -29,10 +29,10 @@ class RomanNumeral
     {
         $total = 0;
         $key = 0;
-        $stuff = str_split($this->numeral);                    #turns numeral string into array of characters
+        $numeralArray = str_split($this->numeral);                    #turns numeral string into array of characters
         
-        foreach ($stuff as &$value1) {                              #going through every charcter in numeral
-            if (in_array($value1, $this->symbols))          #checks is character is in array of symbols if not throws exception
+        foreach ($numeralArray as &$valueNum) {                              #going through every charcter in numeral
+            if (in_array($valueNum, $this->symbols))          #checks is character is in array of symbols if not throws exception
                 { } 
             else
             { 
@@ -40,9 +40,9 @@ class RomanNumeral
             } 
             foreach ($this->symbols as &$value) {                     #goes through every symbol to check for a match
             
-                if( $value1 == $value ){
-                    $key_prev = $key;
-                    $key = array_search($value, $this->symbols);                   #Gets index from value
+                if( $valueNum == $value ){
+                    $key_prev = $key;  
+                    $key = array_search($value, $this->symbols);                   #Gets index from value       M gives 1000
                     
                     
                     if( $key_prev < $key && $key_prev != 0){                #if the previous value is lower than current value take away e.g I then X 
